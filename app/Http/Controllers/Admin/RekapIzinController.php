@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Operator;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Izin;
+use App\Models\User;
 use App\Models\Sektor;
 use App\Models\LaporIzin;
 use Illuminate\Http\Request;
@@ -17,7 +18,28 @@ class RekapIzinController extends Controller
     public function index()
     {
         //
-        $year_now = \Carbon\Carbon::now()->format('Y');
+        $tahun = [
+            '2023' => '2023',
+            '2024' => '2024',
+            '2025' => '2025',
+            '2026' => '2026',
+            '2027' => '2027',
+            '2028' => '2028',
+            '2029' => '2029',
+            '2030' => '2030',
+        ];
+        $operator = User::whereHas("roles", function($q){ $q->where("name", "operator"); })->get();
+        return view('admin.rekap_izin.index', [
+            'operator' => $operator,
+            'tahun' => $tahun,
+        ]);
+    }
+
+    public function getRekap(Request $request, User $operator){
+
+        // dd($request->input('operator'));
+
+        $year_now = $request->input('tahun');
 
         $sektors = Sektor::all();
 
@@ -35,71 +57,71 @@ class RekapIzinController extends Controller
         $desembers = []; // Initialize an empty array
 
         foreach ($sektors as $sektor) {
-            $get_id_izins = Izin::all()->whereIn('sektor_id', $sektor->id)->where('user_id', Auth::id())->pluck('id');
+            $get_id_izins = Izin::all()->whereIn('sektor_id', $sektor->id)->where('user_id', $request->input('operator'))->pluck('id');
 
             $januaris[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 1)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $februaris[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 2)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $marets[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 3)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $aprils[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 4)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $meis[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 5)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $junis[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 6)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $julis[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 7)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $agustuss[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 8)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $septembers[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 9)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $oktobers[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 10)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $novembers[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 11)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
             $desembers[] = LaporIzin::whereIn('izin_id', $get_id_izins)
                 ->whereYear('tanggal_izin', $year_now)
                 ->whereMonth('tanggal_izin', 12)
-                ->where('user_id', Auth::id())
+                ->where('user_id', $request->input('operator'))
                 ->count();
         }
 
-        return view('operator.rekap_izin.index', [
+        return view('admin.rekap_izin.rekap', [
             'sektors' => $sektors,
             'januaris' => $januaris,
             'februaris' => $februaris,
@@ -113,7 +135,11 @@ class RekapIzinController extends Controller
             'oktobers' => $oktobers,
             'novembers' => $novembers,
             'desembers' => $desembers,
+            'year_now' => $year_now,
+            'operator' => $operator,
         ]);
+
+
     }
 
     /**

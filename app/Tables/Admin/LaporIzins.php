@@ -48,6 +48,7 @@ class LaporIzins extends AbstractTable
      */
     public function configure(SpladeTable $table)
     {
+        $operator = User::whereHas("roles", function($q){ $q->where("name", "operator"); })->get()->pluck('name', 'id')->toArray();
         $table
             ->withGlobalSearch(columns: ['id', 'nama_perusahaan', 'alamat_perusahaan', 'tanggal_masuk', 'tanggal_izin', 'nomor_izin', 'izin.nama_izin', 'izin.sektor.nama_sektor'])
             ->searchInput(
@@ -71,7 +72,7 @@ class LaporIzins extends AbstractTable
             ->column(key: 'user.name', label: 'Operator', sortable: true)
             ->selectFilter(
                 key: 'user.id',
-                options: User::all()->pluck('name', 'id')->toArray(),
+                options: $operator,
                 label: 'Pengguna',
                 noFilterOption: true,
                 noFilterOptionLabel: 'Seluruh Kabupaten/Kota'

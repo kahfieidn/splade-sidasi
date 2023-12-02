@@ -53,9 +53,12 @@ Route::middleware('splade')->group(function () {
         });
         Route::group(['middleware' => ['role:admin']], function () {
             Route::resource('/admin-lapor-izin', App\Http\Controllers\Admin\LaporIzinController::class);
+            Route::resource('admin-rekap-izin', App\Http\Controllers\Admin\RekapIzinController::class);
+            Route::resource('admin-lapor-izin-oss', App\Http\Controllers\Admin\LaporIzinOSSController::class);
+            Route::get('/admin-rekap-izin-getRekap', [App\Http\Controllers\Admin\RekapIzinController::class, 'getRekap'])->name('admin-rekap-izin.getRekap');
         });
     });
-
+    
     Route::get('/lapor-izin-import/download_format', [App\Http\Controllers\Operator\LaporIzinImportController::class, 'download_format'])->name('lapor-izin-import.download_format');
 
 
