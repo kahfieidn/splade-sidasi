@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Tables;
+namespace App\Tables\Admin;
 
+use App\Models\User;
 use App\Models\LaporIzin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Maatwebsite\Excel\Facades\Excel;
 use ProtoneMedia\Splade\SpladeTable;
 use ProtoneMedia\Splade\AbstractTable;
-use ProtoneMedia\Splade\Facades\Toast;
 
 class LaporIzins extends AbstractTable
 {
@@ -39,7 +37,7 @@ class LaporIzins extends AbstractTable
      */
     public function for()
     {
-        return LaporIzin::query()->where('user_id', Auth::user()->id);
+        return LaporIzin::query();
     }
 
     /**
@@ -60,7 +58,8 @@ class LaporIzins extends AbstractTable
             ->searchInput(
                 key: 'tanggal_izin',
                 label: 'Cari Tanggal Izin (Y-m-d : 2023-04-28)',
-            )
+            )        
+            ->defaultSortDesc('id')
             ->column(key: 'id', label: '#ID', sortable: true)
             ->column(key: 'nama_perusahaan', label: 'Nama Perusahaan/Perorangan', sortable: true)
             ->column(key: 'alamat_perusahaan', label: 'Alamat Perusahaan', sortable: true)
@@ -69,6 +68,14 @@ class LaporIzins extends AbstractTable
             ->column(key: 'nomor_izin', label: 'Nomor Izin', sortable: true)
             ->column(key: 'izin.nama_izin', label: 'Jenis Izin', sortable: true)
             ->column(key: 'izin.sektor.nama_sektor', label: 'Sektor', sortable: true)
+            ->column(key: 'user.name', label: 'Operator', sortable: true)
+            ->selectFilter(
+                key: 'user.id',
+                options: User::all()->pluck('name', 'id')->toArray(),
+                label: 'Pengguna',
+                noFilterOption: true,
+                noFilterOptionLabel: 'Seluruh Kabupaten/Kota'
+            )
             ->selectFilter(key: 'izin.jenis_izin_id', label: 'Jenis Izin', options: [
                 '1' => 'Perizinan',
                 '2' => 'Non Perizinan',
@@ -90,16 +97,9 @@ class LaporIzins extends AbstractTable
                 '14' => 'Sektor UKM',
                 '15' => 'Sektor Kesatuan Bangsa dan Politik',
                 '16' => 'Sektor Pekerjaan Umum, Penataan Ruang dan Pertanahan',
-            ])
-            ->bulkAction(
-                label: 'Hapus Data',
-                each: fn (LaporIzin $lapor_izin) => $lapor_izin->delete(),
-                confirm: 'Apakah kamu yakin ingin menghapus data berikut yang di seleksi?',
-                confirmButton: 'Ya, Hapus!',
-                cancelButton: 'Tidak, Jangan!',
-                after: fn () => Toast::info('Data Berhasil di Hapus!')->rightBottom()->autoDismiss(2)
-            )->export()
+            ])->export()
             ->paginate(10);
+
 
         // ->searchInput()
         // ->selectFilter()

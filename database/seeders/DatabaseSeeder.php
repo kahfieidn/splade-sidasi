@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\User::create([
-            'name' => 'DPMPTSP Provinsi Kepulauan Riau',
+            'name' => 'Admin DPMPTSP Provinsi Kepulauan Riau',
             'email' => 'admin@appkepriprov.co.id',
             'password' => bcrypt('jika12345'),
         ]);

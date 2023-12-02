@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
+use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,11 +21,11 @@ class LaporIzinFactory extends Factory
         return [
             'nama_perusahaan' => fake()->name(),
             'alamat_perusahaan' => fake()->unique()->safeEmail(),
-            'tanggal_masuk' => now(),
-            'tanggal_izin' => now(),
-            'nomor_izin' => now(),
-            'izin_id' => 1,
-            'user_id' => 2,
+            'tanggal_masuk' => now()->format('d-m-Y'),
+            'tanggal_izin' => now()->format('d-m-Y'),
+            'nomor_izin' => Str::random(10),
+            'izin_id' => 3,
+            'user_id' => 7,
         ];
     }
 }

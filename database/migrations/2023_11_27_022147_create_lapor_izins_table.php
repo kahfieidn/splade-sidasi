@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_perusahaan');
             $table->string('alamat_perusahaan');
-            $table->string('tanggal_masuk');
-            $table->string('tanggal_izin');
+            $table->date('tanggal_masuk');
+            $table->date('tanggal_izin');
             $table->string('nomor_izin');
             $table->foreignId('izin_id')->constrained();
             $table->foreignId('user_id')->constrained();

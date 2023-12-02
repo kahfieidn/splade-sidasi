@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Tables\Admin\LaporIzins;
+use App\Http\Controllers\Controller;
 
 class LaporIzinController extends Controller
 {
@@ -13,6 +14,9 @@ class LaporIzinController extends Controller
     public function index()
     {
         //
+        return view('admin.lapor_izin.index', [
+            'lapor_izins' => LaporIzins::class,
+        ]);
     }
 
     /**

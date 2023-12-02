@@ -39,9 +39,9 @@ class LaporIzinsImport implements ToCollection, WithHeadingRow, SkipsEmptyRows, 
 
         foreach ($rows as $key => $row) {
             $izin = Izin::where('nama_izin', $row['jenis_izin'])->where('user_id', Auth::id())->pluck('id')->first();
-            $tanggalMasuk = is_numeric($row['tanggal_masuk']) ? Date::excelToDateTimeObject($row['tanggal_masuk']) : null;
-            $tanggalIzin = is_numeric($row['tanggal_izin']) ? Date::excelToDateTimeObject($row['tanggal_izin']) : null;
-
+            $tanggalMasuk = is_numeric($row['tanggal_masuk']) ? Date::excelToDateTimeObject($row['tanggal_masuk'])->format('d-m-Y') : null;
+            $tanggalIzin = is_numeric($row['tanggal_izin']) ? Date::excelToDateTimeObject($row['tanggal_izin'])->format('d-m-Y') : null;
+            
             if ($izin === null) {
                 $rules['izin'] = 'required';
                 $customMessages['izin.required'] = 'Perhatikan "' . $row['jenis_izin'] . '" Pada baris ' . ($key + 2) . ' tidak terdaftar';
