@@ -4,6 +4,7 @@ namespace App\Tables;
 
 use App\Models\LaporIzin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use ProtoneMedia\Splade\SpladeTable;
 use ProtoneMedia\Splade\AbstractTable;
@@ -38,7 +39,7 @@ class LaporIzins extends AbstractTable
      */
     public function for()
     {
-        return LaporIzin::query()->where('user_id', auth()->id());
+        return LaporIzin::query()->where('user_id', Auth::user()->id);
     }
 
     /**
@@ -63,7 +64,7 @@ class LaporIzins extends AbstractTable
                 '1' => 'Perizinan',
                 '2' => 'Non Perizinan',
             ])
-            ->selectFilter(key: 'izin.sektor_id', label: 'Jenis Izin', options: [
+            ->selectFilter(key: 'izin.sektor_id', label: 'Sektor', options: [
                 '1' => 'Sektor Penanaman Modal',
                 '2' => 'Sektor Lingkungan Hidup',
                 '3' => 'Sektor Kesehatan',

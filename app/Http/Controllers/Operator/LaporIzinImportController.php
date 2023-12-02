@@ -8,6 +8,7 @@ use App\Imports\LaporIzinsImport;
 use App\Http\Controllers\Controller;
 use ProtoneMedia\Splade\Facades\Toast;
 
+
 class LaporIzinImportController extends Controller
 {
     /**
@@ -36,6 +37,14 @@ class LaporIzinImportController extends Controller
             $failures = $e->getMessage();
             return to_route('lapor-izin-import.index')->withErrors($e->getMessage());
         }
+    }
+
+    public function download_format()
+    {
+        return response()->download(
+            public_path('excel_format/' . 'format_sidasi_v1_4.xlsx'),
+            'format_sidasi_v1_4.xlsx'
+        );
     }
 
     /**

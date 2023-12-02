@@ -32,9 +32,9 @@ Route::middleware('splade')->group(function () {
     });
 
     Route::middleware('auth')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->middleware(['verified'])->name('dashboard');
+        Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])
+            ->middleware(['verified'])
+            ->name('dashboard');
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -47,9 +47,17 @@ Route::middleware('splade')->group(function () {
             Route::resource('izin', App\Http\Controllers\Operator\IzinController::class);
             Route::resource('/lapor-izin', App\Http\Controllers\Operator\LaporIzinController::class);
             Route::resource('/lapor-izin-import', App\Http\Controllers\Operator\LaporIzinImportController::class);
+            Route::resource('/rekap-izin', App\Http\Controllers\Operator\RekapIzinController::class);
             Route::post('/lapor-izin-import', [App\Http\Controllers\Operator\LaporIzinImportController::class, 'import'])->name('lapor-izin-import.import');
+            Route::resource('/lapor-izin-oss', App\Http\Controllers\Operator\LaporIzinOSSController::class);
+        });
+        Route::group(['middleware' => ['role:admin']], function () {
+            Route::resource('/admin-lapor-izin', App\Http\Controllers\Admin\LaporIzinController::class);
         });
     });
+
+    Route::get('/lapor-izin-import/download_format', [App\Http\Controllers\Operator\LaporIzinImportController::class, 'download_format'])->name('lapor-izin-import.download_format');
+
 
     require __DIR__ . '/auth.php';
 });

@@ -19,13 +19,49 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Provinsi Kepulauan Riau',
-            'email' => 'admin@gmail.com',
+            'email' => 'admin@appkepriprov.co.id',
             'password' => bcrypt('jika12345'),
         ]);
 
         \App\Models\User::create([
-            'name' => 'Operator',
-            'email' => 'operator@gmail.com',
+            'name' => 'DPMPTSP Kabupaten Bintan',
+            'email' => 'bintan@appkepriprov.co.id',
+            'password' => bcrypt('jika12345'),
+        ]);
+
+        \App\Models\User::create([
+            'name' => 'DPMPTSP Kabupaten Kepulauan Anambas',
+            'email' => 'anambas@appkepriprov.co.id',
+            'password' => bcrypt('jika12345'),
+        ]);
+
+        \App\Models\User::create([
+            'name' => 'DPMPTSP Kabupaten Lingga',
+            'email' => 'lingga@appkepriprov.co.id',
+            'password' => bcrypt('jika12345'),
+        ]);
+
+        \App\Models\User::create([
+            'name' => 'DPMPTSP Kabupaten Natuna',
+            'email' => 'natuna@appkepriprov.co.id',
+            'password' => bcrypt('jika12345'),
+        ]);
+
+        \App\Models\User::create([
+            'name' => 'DPMPTSP Kota Batam',
+            'email' => 'batam@appkepriprov.co.id',
+            'password' => bcrypt('jika12345'),
+        ]);
+
+        \App\Models\User::create([
+            'name' => 'DPMPTSP Kota Tanjungpinang',
+            'email' => 'tanjungpinang@appkepriprov.co.id',
+            'password' => bcrypt('jika12345'),
+        ]);
+
+        \App\Models\User::create([
+            'name' => 'DPMPTSP Provinsi Kepulauan Riau',
+            'email' => 'kepri@appkepriprov.co.id',
             'password' => bcrypt('jika12345'),
         ]);
 
@@ -34,14 +70,33 @@ class DatabaseSeeder extends Seeder
         Permission::firstOrCreate(['name' => 'read-operator']);
         // Create roles
         $admin = Role::firstOrCreate(['name' => 'admin']);
-        $operator = Role::firstOrCreate(['name' => 'operator']);
+        $bintan = Role::firstOrCreate(['name' => 'operator']);
+        $karimun = Role::firstOrCreate(['name' => 'operator']);
+        $anambas = Role::firstOrCreate(['name' => 'operator']);
+        $lingga = Role::firstOrCreate(['name' => 'operator']);
+        $natuna = Role::firstOrCreate(['name' => 'operator']);
+        $batam = Role::firstOrCreate(['name' => 'operator']);
+        $tanjungpinang = Role::firstOrCreate(['name' => 'operator']);
+        $kepri = Role::firstOrCreate(['name' => 'operator']);
         // Give permission to certain role
         $admin->givePermissionTo(['read-admin']);
-        $operator->givePermissionTo(['read-operator']);
+        $bintan->givePermissionTo(['read-operator']);
+        $karimun->givePermissionTo(['read-operator']);
+        $anambas->givePermissionTo(['read-operator']);
+        $lingga->givePermissionTo(['read-operator']);
+        $natuna->givePermissionTo(['read-operator']);
+        $batam->givePermissionTo(['read-operator']);
+        $tanjungpinang->givePermissionTo(['read-operator']);
+        $kepri->givePermissionTo(['read-operator']);
         // Assign role to user
         User::find(1)->assignRole(['admin']);
         User::find(2)->assignRole(['operator']);
-
+        User::find(3)->assignRole(['operator']);
+        User::find(4)->assignRole(['operator']);
+        User::find(5)->assignRole(['operator']);
+        User::find(6)->assignRole(['operator']);
+        User::find(7)->assignRole(['operator']);
+        User::find(8)->assignRole(['operator']);
 
         $this->call([
             JenisIzinSeeder::class,

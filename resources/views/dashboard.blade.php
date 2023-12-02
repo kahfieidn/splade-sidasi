@@ -15,7 +15,7 @@
                             </svg>
                         </a>
                         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Selamat Datang di Aplikasi Sidasi</h1>
-                        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">DPMPTSP PROVINSI KEPULAUAN RIAU</p>
+                        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">{{ $username }}</p>
                         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                             <Link href="" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                             Get Started
@@ -31,16 +31,16 @@
                     <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
                         <dl class="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white">
                             <div class="flex flex-col items-center justify-center">
-                                <dt class="mb-2 text-3xl md:text-4xl font-extrabold">73M+</dt>
-                                <dd class="font-light text-gray-500 dark:text-gray-400">developers</dd>
+                                <dt class="mb-2 text-3xl md:text-4xl font-extrabold">{{ $jumlah_lapor_izin_oss }}</dt>
+                                <dd class="font-light text-gray-500 dark:text-gray-400">Jumlah Pelaporan Izin OSS</dd>
                             </div>
                             <div class="flex flex-col items-center justify-center">
-                                <dt class="mb-2 text-3xl md:text-4xl font-extrabold">1B+</dt>
-                                <dd class="font-light text-gray-500 dark:text-gray-400">contributors</dd>
+                                <dt class="mb-2 text-3xl md:text-4xl font-extrabold">{{$jumlah_lapor_izin_non_oss}}</dt>
+                                <dd class="font-light text-gray-500 dark:text-gray-400">Jumlah Pelaporan Izin Non OSS</dd>
                             </div>
                             <div class="flex flex-col items-center justify-center">
-                                <dt class="mb-2 text-3xl md:text-4xl font-extrabold">4M+</dt>
-                                <dd class="font-light text-gray-500 dark:text-gray-400">organizations</dd>
+                                <dt class="mb-2 text-3xl md:text-4xl font-extrabold">{{$jumlah_user}}</dt>
+                                <dd class="font-light text-gray-500 dark:text-gray-400">User Yang di Kelola</dd>
                             </div>
                         </dl>
                     </div>

@@ -23,8 +23,7 @@ class LaporIzinFactory extends Factory
             'tanggal_izin' => now(),
             'nomor_izin' => now(),
             'izin_id' => 1,
-            'user_id' => 1,
+            'user_id' => 2,
         ];
-
     }
 }
