@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Operator;
 
 use Carbon\Carbon;
+use App\Models\Sektor;
 use App\Models\LaporIzinOss;
 use Illuminate\Http\Request;
 use App\Tables\LaporIzinOsses;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use ProtoneMedia\Splade\Facades\Toast;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -19,7 +21,7 @@ class LaporIzinOSSController extends Controller
     public function index()
     {
         //
-        
+
         return view('operator.lapor_izin_oss.index', [
             'lapor_izin_oss' => LaporIzinOsses::class,
         ]);
@@ -31,6 +33,8 @@ class LaporIzinOSSController extends Controller
     public function create()
     {
         //
+
+        $sektor = Sektor::all();
 
         $jenis_oss = [
             'Perizinan' => 'Perizinan',
@@ -61,11 +65,12 @@ class LaporIzinOSSController extends Controller
             '2029' => '2029',
             '2030' => '2030',
         ];
-        
+
         return view('operator.lapor_izin_oss.create', [
             'bulan' => $bulan,
             'tahun' => $tahun,
             'jenis_oss' => $jenis_oss,
+            'sektor' => $sektor,
         ]);
     }
 
@@ -74,11 +79,12 @@ class LaporIzinOSSController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
-            'berkas'         => 'required|mimes:xlsx,xls|max:20480',
-            'jenis_oss'   => 'required',
-            'bulan'       => 'required',
-            'tahun'   => 'required',
+            'berkas' => 'required|mimes:xlsx,xls|max:20480',
+            'jenis_oss'  => 'required',
+            'bulan' => 'required',
+            'tahun'  => 'required',
             'jumlah_data'   => 'required'
         ]);
 
@@ -86,20 +92,28 @@ class LaporIzinOSSController extends Controller
             return to_route('lapor-izin-oss.create');
         }
 
-        //upload image
         $berkas = $request->file('berkas');
         $berkas->storeAs('public/lapor_izin_oss', $berkas->hashName());
 
         $lapor_izin_osses = LaporIzinOss::create([
-            'berkas'       => $berkas->hashName(),
-            'jenis_oss'       => $request->jenis_oss,
-            'bulan'       => $request->bulan,
-            'tahun'       => $request->tahun,
-            'jumlah_data'       => $request->jumlah_data,
-            'user_id'       => auth()->user()->id,
+            'berkas' => $berkas->hashName(),
+            'jenis_oss' => $request->jenis_oss,
+            'bulan' => $request->bulan,
+            'tahun' => $request->tahun,
+            'jumlah_data' => $request->jumlah_data,
+            'user_id' => auth()->user()->id,
         ]);
 
+        $user_id = Auth::id();
+
+        $data_sektor = $request->data_sektor;
+
+        foreach ($data_sektor as &$sektor) {
+            $sektor['user_id'] = $user_id;
+        }
+
         $lapor_izin_osses->save();
+        $lapor_izin_osses->data_sektor_osses()->createMany($data_sektor);
         return to_route('lapor-izin-oss.index');
     }
 
@@ -133,7 +147,7 @@ class LaporIzinOSSController extends Controller
     public function destroy(LaporIzinOss $lapor_izin_oss)
     {
         //
-        Storage::disk('local')->delete('public/lapor_izin_oss/'.basename($lapor_izin_oss->berkas));
+        Storage::disk('local')->delete('public/lapor_izin_oss/' . basename($lapor_izin_oss->berkas));
 
         $lapor_izin_oss->delete();
         Toast::title('Whoops!')

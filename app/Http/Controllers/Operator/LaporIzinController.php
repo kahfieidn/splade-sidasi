@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Operator;
 
 use App\Models\Izin;
+use App\Models\Sektor;
 use App\Models\LaporIzin;
 use App\Tables\LaporIzins;
 use Illuminate\Http\Request;

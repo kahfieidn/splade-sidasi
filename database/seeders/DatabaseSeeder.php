@@ -19,49 +19,49 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'name' => 'Admin DPMPTSP Provinsi Kepulauan Riau',
-            'email' => 'admin@appkepriprov.co.id',
+            'email' => 'admin@kepri.pro',
             'password' => bcrypt('jika12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kabupaten Bintan',
-            'email' => 'bintan@appkepriprov.co.id',
+            'email' => 'bintan@kepri.pro',
             'password' => bcrypt('jika12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kabupaten Kepulauan Anambas',
-            'email' => 'anambas@appkepriprov.co.id',
+            'email' => 'anambas@kepri.pro',
             'password' => bcrypt('jika12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kabupaten Lingga',
-            'email' => 'lingga@appkepriprov.co.id',
+            'email' => 'lingga@kepri.pro',
             'password' => bcrypt('jika12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kabupaten Natuna',
-            'email' => 'natuna@appkepriprov.co.id',
+            'email' => 'natuna@kepri.pro',
             'password' => bcrypt('jika12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kota Batam',
-            'email' => 'batam@appkepriprov.co.id',
+            'email' => 'batam@kepri.pro',
             'password' => bcrypt('jika12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kota Tanjungpinang',
-            'email' => 'tanjungpinang@appkepriprov.co.id',
+            'email' => 'tanjungpinang@kepri.pro',
             'password' => bcrypt('jika12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Provinsi Kepulauan Riau',
-            'email' => 'kepri@appkepriprov.co.id',
+            'email' => 'kepri@kepri.pro',
             'password' => bcrypt('jika12345'),
         ]);
 

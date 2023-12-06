@@ -22,4 +22,10 @@ class LaporIzinOss extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function data_sektor_osses()
+    {   
+        return $this->morphMany(DataSektorOSS::class, 'data_sektor_ossable');
+    }
+    
 }

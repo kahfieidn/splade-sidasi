@@ -50,6 +50,7 @@ Route::middleware('splade')->group(function () {
             Route::resource('/rekap-izin', App\Http\Controllers\Operator\RekapIzinController::class);
             Route::post('/lapor-izin-import', [App\Http\Controllers\Operator\LaporIzinImportController::class, 'import'])->name('lapor-izin-import.import');
             Route::resource('/lapor-izin-oss', App\Http\Controllers\Operator\LaporIzinOSSController::class);
+            Route::resource('/data-sektor-oss', App\Http\Controllers\Operator\DataSektorOSSController::class);
         });
         Route::group(['middleware' => ['role:admin']], function () {
             Route::resource('/admin-lapor-izin', App\Http\Controllers\Admin\LaporIzinController::class);
