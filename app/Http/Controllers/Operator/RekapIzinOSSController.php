@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\Operator;
 
-use Illuminate\Http\Request;
-use App\Models\DataSektorOSS;
-use App\Tables\DataSektorOsses;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
-class DataSektorOSSController extends Controller
+class RekapIzinOSSController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,12 +37,6 @@ class DataSektorOSSController extends Controller
     public function show(string $id)
     {
         //
-        $DataSektor = DataSektorOSS::where('data_sektor_ossable_id', $id)->where('user_id', Auth::id())->get();
-        
-        return view('operator.data_sektor_oss.show', [
-            'data_sektor_oss' => $DataSektor,
-        ]);
-
     }
 
     /**

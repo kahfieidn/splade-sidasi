@@ -50,12 +50,14 @@ Route::middleware('splade')->group(function () {
             Route::resource('/rekap-izin', App\Http\Controllers\Operator\RekapIzinController::class);
             Route::post('/lapor-izin-import', [App\Http\Controllers\Operator\LaporIzinImportController::class, 'import'])->name('lapor-izin-import.import');
             Route::resource('/lapor-izin-oss', App\Http\Controllers\Operator\LaporIzinOSSController::class);
+            Route::resource('/rekap-izin-oss', App\Http\Controllers\Operator\RekapIzinOSSController::class);
             Route::resource('/data-sektor-oss', App\Http\Controllers\Operator\DataSektorOSSController::class);
         });
         Route::group(['middleware' => ['role:admin']], function () {
             Route::resource('/admin-lapor-izin', App\Http\Controllers\Admin\LaporIzinController::class);
             Route::resource('admin-rekap-izin', App\Http\Controllers\Admin\RekapIzinController::class);
             Route::resource('admin-lapor-izin-oss', App\Http\Controllers\Admin\LaporIzinOSSController::class);
+            Route::resource('/admin-data-sektor-oss', App\Http\Controllers\Admin\DataSektorOSSController::class);
             Route::get('/admin-rekap-izin-getRekap', [App\Http\Controllers\Admin\RekapIzinController::class, 'getRekap'])->name('admin-rekap-izin.getRekap');
         });
     });

@@ -4,6 +4,7 @@ namespace App\Tables;
 
 use App\Models\LaporIzinOss;
 use Illuminate\Http\Request;
+use App\Models\DataSektorOSS;
 use Illuminate\Support\Facades\Auth;
 use ProtoneMedia\Splade\SpladeTable;
 use ProtoneMedia\Splade\AbstractTable;
@@ -81,6 +82,7 @@ class LaporIzinOsses extends AbstractTable
         ->column(key: 'jumlah_data', label: 'Jumlah Data', sortable: true)
         ->column(key: 'berkas', label: 'Berkas', sortable: true)
         ->column('actions')
+        ->rowModal(fn (LaporIzinOss $laporIzinOss) => route('data-sektor-oss.show', $laporIzinOss->id))
         ->export()
         ->paginate(5);
             // ->searchInput()

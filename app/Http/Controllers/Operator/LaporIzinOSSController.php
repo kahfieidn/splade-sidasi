@@ -149,6 +149,7 @@ class LaporIzinOSSController extends Controller
         //
         Storage::disk('local')->delete('public/lapor_izin_oss/' . basename($lapor_izin_oss->berkas));
 
+        $lapor_izin_oss->data_sektor_osses()->delete();
         $lapor_izin_oss->delete();
         Toast::title('Whoops!')
             ->message('Data telah dihapus!')

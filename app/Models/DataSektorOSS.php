@@ -22,4 +22,8 @@ class DataSektorOss extends Model
         return $this->morphTo();
     }
 
+    public function sektor(){
+        return $this->belongsTo(Sektor::class, 'sektor_id');
+    }
+    
 }

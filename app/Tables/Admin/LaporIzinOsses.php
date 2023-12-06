@@ -91,6 +91,7 @@ class LaporIzinOsses extends AbstractTable
             ->column(key: 'jumlah_data', label: 'Jumlah Data', sortable: true)
             ->column(key: 'berkas', label: 'Berkas', sortable: true)
             ->column('actions')
+            ->rowModal(fn (LaporIzinOss $laporIzinOss) => route('admin-data-sektor-oss.show', $laporIzinOss->id))
             ->export()
             ->paginate(5);
 

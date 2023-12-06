@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Operator;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\DataSektorOSS;
-use App\Tables\DataSektorOsses;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 class DataSektorOSSController extends Controller
 {
@@ -39,10 +37,8 @@ class DataSektorOSSController extends Controller
      */
     public function show(string $id)
     {
-        //
-        $DataSektor = DataSektorOSS::where('data_sektor_ossable_id', $id)->where('user_id', Auth::id())->get();
-        
-        return view('operator.data_sektor_oss.show', [
+        $DataSektor = DataSektorOSS::where('data_sektor_ossable_id', $id)->get();
+        return view('admin.data_sektor_oss.show', [
             'data_sektor_oss' => $DataSektor,
         ]);
 
