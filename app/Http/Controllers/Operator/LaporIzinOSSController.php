@@ -80,12 +80,16 @@ class LaporIzinOSSController extends Controller
     public function store(Request $request)
     {
 
+        $total_jumlah_data_sektor = 0;
+        foreach ($request->data_sektor as $sektor) {
+            $total_jumlah_data_sektor += intval($sektor["jumlah_data_sektor"]);
+        }
+
         $validator = Validator::make($request->all(), [
             'berkas' => 'required|mimes:xlsx,xls|max:20480',
             'jenis_oss'  => 'required',
             'bulan' => 'required',
             'tahun'  => 'required',
-            'jumlah_data'   => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -100,7 +104,7 @@ class LaporIzinOSSController extends Controller
             'jenis_oss' => $request->jenis_oss,
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,
-            'jumlah_data' => $request->jumlah_data,
+            'jumlah_data' => $total_jumlah_data_sektor,
             'user_id' => auth()->user()->id,
         ]);
 

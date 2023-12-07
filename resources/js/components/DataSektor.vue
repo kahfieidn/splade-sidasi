@@ -1,5 +1,6 @@
 <template>
     <div>
+
       <div v-for="(field, index) in fields" :key="index" class="grid md:grid-cols-3 md:gap-4">
         <div class="relative z-999 w-full mb-6 group">
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Sektor</label>
@@ -53,11 +54,13 @@
           Tambah Sektor Lain
         </span>
       </button>
+
+
     </div>
   </template>
   
   <script setup>
-  import { ref, defineEmits, onUpdated } from "vue";
+import { ref, defineEmits, onUpdated } from "vue";
   
   const emit = defineEmits(["update:modelValue"]);
   
@@ -84,6 +87,7 @@
     {
       sektor_id: "",
       jumlah_data_sektor: "",
+
     },
   ]);
   
@@ -91,6 +95,7 @@
     fields.value.push({
       sektor_id: "",
       jumlah_data_sektor: "",
+      
     });
   };
   
@@ -108,7 +113,9 @@
     }
     return false;
   };
-  
+
+
+
   onUpdated(() => {
     emit("update:modelValue", fields.value);
   });
