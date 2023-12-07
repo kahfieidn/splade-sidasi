@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,9 +28,7 @@ Route::middleware('splade')->group(function () {
     // Registers routes to support async File Uploads with Filepond...
     Route::spladeUploads();
 
-    Route::get('/', function () {
-        return redirect('dashboard');
-    });
+    Route::get('/', [App\Http\Controllers\DashboardController::class, 'homepage'])->name('homepage');
 
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])
