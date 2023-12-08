@@ -12,6 +12,7 @@ class DashboardController extends Controller
 {
     public function homepage(){
         return redirect('/dashboard');
+        
     }
     //
     public function index()
@@ -25,7 +26,7 @@ class DashboardController extends Controller
             'jumlah_lapor_izin_non_oss' => $jumlah_lapor_izin_non_oss,
             'jumlah_lapor_izin_oss' => $jumlah_lapor_izin_oss,
             'jumlah_user' => $jumlah_user,
-            'username' => $username
+            'username' => $username,
         ]);
     }
 }
