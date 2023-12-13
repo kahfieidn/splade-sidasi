@@ -30,6 +30,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::create([
+            'name' => 'DPMPTSP Kabupaten Karimun',
+            'email' => 'karimun@kepri.pro',
+            'password' => bcrypt('jika12345'),
+        ]);
+
+        \App\Models\User::create([
             'name' => 'DPMPTSP Kabupaten Kepulauan Anambas',
             'email' => 'anambas@kepri.pro',
             'password' => bcrypt('jika12345'),
@@ -97,12 +103,13 @@ class DatabaseSeeder extends Seeder
         User::find(6)->assignRole(['operator']);
         User::find(7)->assignRole(['operator']);
         User::find(8)->assignRole(['operator']);
+        User::find(9)->assignRole(['operator']);
 
         $this->call([
             JenisIzinSeeder::class,
             SektorSeeder::class,
             IzinSeeder::class,
         ]);
-        
+    
     }
 }
