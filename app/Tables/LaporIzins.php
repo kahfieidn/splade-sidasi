@@ -61,7 +61,7 @@ class LaporIzins extends AbstractTable
 
         return QueryBuilder::for(LaporIzin::class)
             ->defaultSort('tanggal_izin')
-            ->allowedSorts(['tanggal_izin', 'izin.jenis_izin.id', 'izin.sektor.nama_sektor'])
+            ->allowedSorts(['id','nama_perusahaan', 'alamat_perusahaan', 'tanggal_masuk','tanggal_izin', 'nomor_izin','izin.nama_izin','izin.jenis_izin.id', 'izin.sektor.nama_sektor'])
             ->allowedFilters(['izin.jenis_izin.id', 'izin.sektor.nama_sektor', $yearFilter, $monthFilter])
             ->where('user_id', Auth::user()->id);
     }
@@ -113,6 +113,7 @@ class LaporIzins extends AbstractTable
                     'Sektor UKM' => 'Sektor UKM',
                     'Sektor Kesatuan Bangsa dan Politik' => 'Sektor Kesatuan Bangsa dan Politik',
                     'Sektor Pekerjaan Umum, Penataan Ruang dan Pertanahan' => 'Sektor Pekerjaan Umum, Penataan Ruang dan Pertanahan',
+                    'Sektor Pengawasan Obat dan Makanan' => 'Sektor Pengawasan Obat dan Makanan',
                 ],
             )
             ->selectFilter(key: 'year', options: ['2024' => '2024', '2023' => '2023', '2022' => '2022', '2021' => '2021'], label: 'Tahun Izin', noFilterOptionLabel: '-')
