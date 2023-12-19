@@ -11,9 +11,14 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function homepage(){
-        return redirect('/dashboard');
-        
+        return view('homepage.index');
     }
+
+    public function statistik_perizinan(){
+        
+        return view('homepage.statistik_perizinan');
+    }
+    
     //
     public function index()
     {

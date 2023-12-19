@@ -29,6 +29,7 @@ Route::middleware('splade')->group(function () {
     Route::spladeUploads();
 
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'homepage'])->name('homepage');
+    Route::get('/statistik-perizinan', [App\Http\Controllers\DashboardController::class, 'statistik_perizinan'])->name('homepage.statistik_perizinan');
 
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])

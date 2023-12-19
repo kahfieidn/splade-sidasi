@@ -95,7 +95,6 @@
         </li>
         
     </ul>
-
     @endhasrole
 
     <!-- Responsive Settings Options -->

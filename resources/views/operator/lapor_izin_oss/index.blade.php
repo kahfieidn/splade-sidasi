@@ -12,7 +12,6 @@
             </span>
             </Link>
 
-
             <x-splade-table search-debounce="1000" pagination-scroll="head" :for="$lapor_izin_oss" striped>
                 <x-splade-cell actions as="$lapor_izin_oss">
                     <a modal target="__blank" href="{{ url('storage/lapor_izin_oss/' . $lapor_izin_oss->berkas) }}" class="mr-3 text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-primary-800">
