@@ -20,55 +20,55 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::create([
             'name' => 'Admin DPMPTSP Provinsi Kepulauan Riau',
             'email' => 'admin@kepri.pro',
-            'password' => bcrypt('jika12345'),
+            'password' => bcrypt('12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kabupaten Bintan',
             'email' => 'bintan@kepri.pro',
-            'password' => bcrypt('jika12345'),
+            'password' => bcrypt('12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kabupaten Karimun',
             'email' => 'karimun@kepri.pro',
-            'password' => bcrypt('jika12345'),
+            'password' => bcrypt('12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kabupaten Kepulauan Anambas',
             'email' => 'anambas@kepri.pro',
-            'password' => bcrypt('jika12345'),
+            'password' => bcrypt('12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kabupaten Lingga',
             'email' => 'lingga@kepri.pro',
-            'password' => bcrypt('jika12345'),
+            'password' => bcrypt('12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kabupaten Natuna',
             'email' => 'natuna@kepri.pro',
-            'password' => bcrypt('jika12345'),
+            'password' => bcrypt('12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kota Batam',
             'email' => 'batam@kepri.pro',
-            'password' => bcrypt('jika12345'),
+            'password' => bcrypt('12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Kota Tanjungpinang',
             'email' => 'tanjungpinang@kepri.pro',
-            'password' => bcrypt('jika12345'),
+            'password' => bcrypt('12345'),
         ]);
 
         \App\Models\User::create([
             'name' => 'DPMPTSP Provinsi Kepulauan Riau',
             'email' => 'kepri@kepri.pro',
-            'password' => bcrypt('jika12345'),
+            'password' => bcrypt('12345'),
         ]);
 
         // Create permissions

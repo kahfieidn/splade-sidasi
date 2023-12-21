@@ -30,12 +30,13 @@ Route::middleware('splade')->group(function () {
 
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'homepage'])->name('homepage');
     Route::get('/statistik-perizinan', [App\Http\Controllers\DashboardController::class, 'statistik_perizinan'])->name('homepage.statistik_perizinan');
+    Route::resource('/statistik-perizinan', App\Http\Controllers\Homepage\StatistikPerizinanController::class);
+    Route::get('/chart', [App\Http\Controllers\ChartController::class, 'index']); 
 
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])
             ->middleware(['verified'])
             ->name('dashboard');
-
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
