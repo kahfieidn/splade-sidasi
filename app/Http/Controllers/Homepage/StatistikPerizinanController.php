@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Homepage;
 
-use App\Charts\UserChart;
+use App\Charts\ChartSample;
+use App\Charts\DataPerizinanNonOss;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class StatistikPerizinanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(UserChart $chart)
+    public function index(DataPerizinanNonOss $chart)
     {
         //
         return view('homepage.statistik_perizinan', [
@@ -41,6 +41,7 @@ class StatistikPerizinanController extends Controller
     public function show(string $id)
     {
         //
+        dd("here");
     }
 
     /**

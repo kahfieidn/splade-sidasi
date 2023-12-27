@@ -7,6 +7,8 @@ import { createApp } from "vue/dist/vue.esm-bundler.js";
 import { renderSpladeApp, SpladePlugin } from "@protonemedia/laravel-splade";
 import VueApexCharts from "vue3-apexcharts";
 
+import DataSektor from "./components/DataSektor.vue";
+
 const el = document.getElementById("app");
 
 createApp({

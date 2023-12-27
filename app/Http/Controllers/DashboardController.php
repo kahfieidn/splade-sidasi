@@ -13,6 +13,10 @@ class DashboardController extends Controller
     public function homepage(){
         return view('homepage.index');
     }
+
+    public function chart(){
+        return view('homepage.chart');
+    }
     
     //
     public function index()
