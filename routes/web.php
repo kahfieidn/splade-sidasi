@@ -30,7 +30,7 @@ Route::middleware('splade')->group(function () {
 
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'homepage'])->name('homepage');
     Route::resource('/statistik-perizinan', App\Http\Controllers\Homepage\StatistikPerizinanController::class);
-    Route::get('/chart', [App\Http\Controllers\DashboardController::class, 'chart'])->name('homepage.chart');
+    Route::resource('/statistik-investasi', App\Http\Controllers\Homepage\StatistikInvestasiController::class);
 
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])

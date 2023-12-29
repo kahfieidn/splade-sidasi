@@ -8,8 +8,8 @@
         <p class="mb-4 mt-4">Website ini merupakan portal yang didedikasikan untuk memfasilitasi dan memberikan akses yang mudah kepada para investor, pelaku usaha, dan pemangku kepentingan terkait dalam mendapatkan informasi strategis mengenai sektor investasi di wilayah Kabupaten Kota.</p>
       </div>
       <div class="grid grid-cols-2 gap-4 mt-8">
-        <img class="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1">
-        <img class="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2">
+        <img class="w-full rounded-lg" src="/assets/img-1.png" alt="office content 1">
+        <img class="mt-4 w-full lg:mt-10 rounded-lg" src="/assets/img-2.png" alt="office content 2">
       </div>
     </div>
   </section>

@@ -2,25 +2,20 @@
 
 namespace App\Http\Controllers\Homepage;
 
-use App\Charts\ChartSample;
-use App\Charts\DataPerizinanNonOss;
-use App\Charts\DataPerizinanOss;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class StatistikPerizinanController extends Controller
+class StatistikInvestasiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(DataPerizinanNonOss $chartNonOss, DataPerizinanOss $chartOss)
+    public function index()
     {
         //
-        return view('homepage.statistik_perizinan.index', [
-            'chartNonOss' => $chartNonOss->build(),
-            'chartOss' => $chartOss->build(),
-        ]);
+        return view('homepage.statistik_investasi.index');
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -43,7 +38,6 @@ class StatistikPerizinanController extends Controller
     public function show(string $id)
     {
         //
-        dd("here");
     }
 
     /**

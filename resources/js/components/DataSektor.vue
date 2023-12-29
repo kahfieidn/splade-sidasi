@@ -66,22 +66,23 @@ import { ref, defineEmits, onUpdated } from "vue";
   
   const sektorOptions = [
     { value: 1, label: "Sektor Penanaman Modal" },
-    { value: 2, label: "Sektor Lingkungan Hidup" },
+    { value: 2, label: "Sektor Lingkungan Hidup dan Kehutanan" },
     { value: 3, label: "Sektor Kesehatan" },
     { value: 4, label: "Sektor Perhubungan" },
-    { value: 5, label: "Sektor Tenaga Kerja" },
+    { value: 5, label: "Sektor Ketenagakerjaan" },
     { value: 6, label: "Sektor Kelautan dan Perikanan" },
-    { value: 7, label: "Sektor ESDM" },
-    { value: 8, label: "Sektor Perindustrian dan Perdagangan" },
+    { value: 7, label: "Sektor Energi dan Sumber Daya Mineral" },
+    { value: 8, label: "Sektor Perindustrian" },
     { value: 9, label: "Sektor Pariwisata" },
-    { value: 10, label: "Sektor Kebudayaan" },
-    { value: 11, label: "Sektor Pertanian, Pangan dan Hewan" },
-    { value: 12, label: "Sektor Pendidikan" },
+    { value: 10, label: "Sektor Komunikasi dan Informatika" },
+    { value: 11, label: "Sektor Pertanian" },
+    { value: 12, label: "Sektor Pendidikan, Kebudayaan, Riset, dan Teknologi" },
     { value: 13, label: "Sektor Sosial" },
-    { value: 14, label: "Sektor UKM" },
+    { value: 14, label: "Sektor Koperasi dan Usaha Kecil dan Menengah" },
     { value: 15, label: "Sektor Kesatuan Bangsa dan Politik" },
-    { value: 16, label: "Sektor Pekerjaan Umum, Penataan Ruang dan Pertanahan" },
-    { value: 17, label: "Sektor Pengawasan Obat dan Makanan" },
+    { value: 16, label: "Sektor Pekerjaan Umum dan Perumahan Rakyat" },
+    { value: 17, label: "Sektor Badan Pengawas Obat dan Makanan" },
+    { value: 18, label: "Sektor Perdagangan"}
   ];
   
   const fields = ref([
