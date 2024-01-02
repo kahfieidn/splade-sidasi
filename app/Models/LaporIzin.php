@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class LaporIzin extends Model
 {
-    use HasFactory;
+    use HasFactory, PowerJoins;
 
     protected $fillable = [
         'nama_perusahaan',
