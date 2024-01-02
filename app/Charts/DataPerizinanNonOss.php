@@ -17,7 +17,7 @@ class DataPerizinanNonOss
     public function build(): array
     {
 
-        $year_now = \Carbon\Carbon::now()->format('Y');
+        $year_now = \Carbon\Carbon::now()->format('Y') -1;
 
         $lapor_izin_bintan = [];
         $lapor_izin_karimun = [];

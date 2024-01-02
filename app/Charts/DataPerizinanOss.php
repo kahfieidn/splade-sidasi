@@ -17,7 +17,7 @@ class DataPerizinanOss
 
     public function build(): array
     {
-        $year_now = \Carbon\Carbon::now()->format('Y');
+        $year_now = \Carbon\Carbon::now()->format('Y') -1;
 
         $bulanNames = [
             'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
@@ -38,41 +38,49 @@ class DataPerizinanOss
 
             $lapor_izin_bintan[$month] = LaporIzinOss::where('user_id', 2)
                 ->where('bulan', $namaBulan)
+                ->where('tahun', $year_now)
                 ->pluck('jumlah_data')
                 ->first() ?? 0;
 
             $lapor_izin_karimun[$month] = LaporIzinOss::where('user_id', 3)
                 ->where('bulan', $namaBulan)
+                ->where('tahun', $year_now)
                 ->pluck('jumlah_data')
                 ->first() ?? 0;
 
             $lapor_izin_anambas[$month] = LaporIzinOss::where('user_id', 4)
                 ->where('bulan', $namaBulan)
+                ->where('tahun', $year_now)
                 ->pluck('jumlah_data')
                 ->first() ?? 0;
 
             $lapor_izin_lingga[$month] = LaporIzinOss::where('user_id', 5)
                 ->where('bulan', $namaBulan)
+                ->where('tahun', $year_now)
                 ->pluck('jumlah_data')
                 ->first() ?? 0;
 
             $lapor_izin_natuna[$month] = LaporIzinOss::where('user_id', 6)
                 ->where('bulan', $namaBulan)
+                ->where('tahun', $year_now)
                 ->pluck('jumlah_data')
                 ->first() ?? 0;
 
             $lapor_izin_batam[$month] = LaporIzinOss::where('user_id', 7)
                 ->where('bulan', $namaBulan)
+                ->where('tahun', $year_now)
                 ->pluck('jumlah_data')
                 ->first() ?? 0;
 
             $lapor_izin_tanjungpinang[$month] = LaporIzinOss::where('user_id', 8)
                 ->where('bulan', $namaBulan)
+                ->where('tahun', $year_now)
                 ->pluck('jumlah_data')
                 ->first() ?? 0;
 
             $lapor_izin_kepri[$month] = LaporIzinOss::where('user_id', 9)
                 ->where('bulan', $namaBulan)
+                ->where('tahun', $year_now)
                 ->pluck('jumlah_data')
                 ->first() ?? 0;
         }
