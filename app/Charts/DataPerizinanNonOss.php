@@ -72,7 +72,6 @@ class DataPerizinanNonOss
             ->addData('DPMPTSP Natuna', $lapor_izin_natuna)
             ->addData('DPMPTSP Batam', $lapor_izin_batam)
             ->addData('DPMPTSP Tanjungpinang', $lapor_izin_tanjungpinang)
-            ->addData('DPMPTSP Kepri', $lapor_izin_kepri)
             ->setXAxis(['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'])
             ->setGrid()
             ->toVue();
