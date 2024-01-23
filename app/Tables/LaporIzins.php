@@ -127,6 +127,7 @@ class LaporIzins extends AbstractTable
                     'Sektor Pekerjaan Umum dan Perumahan Rakyat' => 'Sektor Pekerjaan Umum dan Perumahan Rakyat',
                     'Sektor Badan Pengawas Obat dan Makanan' => 'Sektor Badan Pengawas Obat dan Makanan',
                     'Sektor Perdagangan' => 'Sektor Perdagangan',
+                    'Sektor Agraria dan Tata Ruang Badan Pertanahan Nasional' => 'Sektor Agraria dan Tata Ruang Badan Pertanahan Nasional',
                 ],
             )
             ->selectFilter(key: 'year', options: ['2024' => '2024', '2023' => '2023', '2022' => '2022', '2021' => '2021'], label: 'Tahun Izin', noFilterOptionLabel: '-')

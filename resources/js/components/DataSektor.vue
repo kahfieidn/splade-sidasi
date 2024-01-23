@@ -82,7 +82,8 @@ import { ref, defineEmits, onUpdated } from "vue";
     { value: 15, label: "Sektor Kesatuan Bangsa dan Politik" },
     { value: 16, label: "Sektor Pekerjaan Umum dan Perumahan Rakyat" },
     { value: 17, label: "Sektor Badan Pengawas Obat dan Makanan" },
-    { value: 18, label: "Sektor Perdagangan"}
+    { value: 18, label: "Sektor Perdagangan"},
+    { value: 19, label: "Sektor Agraria dan Tata Ruang Badan Pertanahan Nasional"}
   ];
   
   const fields = ref([
