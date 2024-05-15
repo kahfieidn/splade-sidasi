@@ -18,9 +18,10 @@ jobs:
         npm install
         npm run build
     
+
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp.kepri.pro
+        server: srv3.kepri.pro
         username: sidasi_kahfi
         password: ${{ secrets.FTP_PASSWORD }}
