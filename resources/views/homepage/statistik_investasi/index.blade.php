@@ -1,6 +1,20 @@
 <x-homepage-layout>
     <section class="bg-white dark:bg-gray-900">
+
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+
+
+
+
+            <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+            <tableau-viz id="tableauViz" src='https://public.tableau.com/views/DataProv/Dashboard4?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link' height='600px' width='100%' hide-tabs>
+            </tableau-viz>
+            
+            <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+            <tableau-viz id="tableauViz" src='https://public.tableau.com/views/DataProv/Dashboard3?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link' height='600px' width='100%' hide-tabs>
+            </tableau-viz>
+
+
 
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
@@ -12,7 +26,7 @@
                     </a>
                     <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Data Realtime</h2>
                     <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Data yang diupdate secara real-time adalah kumpulan informasi yang diperbarui secara instan dan langsung merefleksikan perubahan terbaru. Dalam konteks ini, real-time mengacu pada pengumpulan dan pembaruan data yang hampir seketika atau dengan penundaan sangat minimal setelah terjadinya perubahan di sumber data.</p>
-                    
+
                 </div>
                 <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
                     <a href="#" class="bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-purple-400 mb-2">
@@ -23,7 +37,7 @@
                     </a>
                     <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Pusat Satu Data</h2>
                     <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Sebagai perangkat daerah dalam penyediaan layanan perizinan dan non-perizinan di Provinsi Kepulauan Riau, Pusat Satu Data DPMPTSP (Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu) Kepri menjadi pusat unggulan dalam mengelola dan menyediakan data terkait investasi dan perizinan di wilayah tersebut.</p>
-                    
+
                 </div>
             </div>
         </div>
