@@ -3,8 +3,8 @@
     <nav class="bg-white dark:bg-gray-900 w-full top-0 start-0 border-b border-gray-200 dark:border-gray-600 z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <Link href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SIDASI APPS</span>
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SIDASI APPS</span>
             </Link>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <a href="{{ route('dashboard') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</a>
@@ -40,24 +40,22 @@
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <Link href="/" class="flex items-center">
-                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SIDASI APPS</span>
+                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SIDASI APPS</span>
                     </Link>
                 </div>
                 <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Link</h2>
                         <ul class="text-gray-500 dark:text-gray-400 font-medium">
                             <li class="mb-4">
                                 <a href="https://dpmptsp.kepriprov.go.id/" class="hover:underline">DPMPTSP Kepri</a>
                             </li>
-                            <li>
-                                <a href="https://api.whatsapp.com/send?phone=628117772197&text=ini%20khusus%20layanan%20konsultasi%20DPMPTSP%20Kepri" class="hover:underline">Helpdesk</a>
-                            </li>
+
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Tetaplah Terhubung</h2>
                         <ul class="text-gray-500 dark:text-gray-400 font-medium">
                             <li class="mb-4">
                                 <a href="https://www.instagram.com/dpmptspprovinsikepri/" class="hover:underline ">Instagram</a>
@@ -68,13 +66,13 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Dukungan & Bantuan</h2>
                         <ul class="text-gray-500 dark:text-gray-400 font-medium">
                             <li class="mb-4">
-                                <a href="#" class="hover:underline">Privacy Policy</a>
+                                <a href="https://api.whatsapp.com/send?phone=628117772197&text=ini%20khusus%20layanan%20konsultasi%20DPMPTSP%20Kepri" class="hover:underline">WhatsApp : +628117772197</a>
                             </li>
                             <li>
-                                <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                                <a href="https://api.whatsapp.com/send?phone=628117772197&text=ini%20khusus%20layanan%20konsultasi%20DPMPTSP%20Kepri" class="hover:underline">Email : it@kepri.pro</a>
                             </li>
                         </ul>
                     </div>
