@@ -74,7 +74,7 @@ class LaporIzins extends AbstractTable
         return QueryBuilder::for(LaporIzin::class)
             ->allowedIncludes('izin')
             ->allowedSorts(['izin.nama_izin', 'id', 'nama_perusahaan', 'alamat_perusahaan', 'tanggal_masuk', 'tanggal_izin', 'nomor_izin', 'izin.jenis_izin.id', 'izin.sektor.nama_sektor'])
-            ->allowedFilters(['izin.nama_izin', 'izin.sektor.nama_sektor', $globalSearch, $yearFilter, $monthFilter])
+            ->allowedFilters(['izin.jenis_izin.id', 'izin.nama_izin', 'izin.sektor.nama_sektor', $globalSearch, $yearFilter, $monthFilter])
             ->where('user_id', Auth::user()->id);
     }
 
