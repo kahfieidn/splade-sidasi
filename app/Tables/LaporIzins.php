@@ -130,7 +130,7 @@ class LaporIzins extends AbstractTable
                     'Sektor Agraria dan Tata Ruang Badan Pertanahan Nasional' => 'Sektor Agraria dan Tata Ruang Badan Pertanahan Nasional',
                 ],
             )
-            ->selectFilter(key: 'year', options: ['2024' => '2024', '2023' => '2023', '2022' => '2022', '2021' => '2021'], label: 'Tahun Izin', noFilterOptionLabel: '-')
+            ->selectFilter(key: 'year', options: ['2025' => '2025', '2024' => '2024', '2023' => '2023', '2022' => '2022', '2021' => '2021'], label: 'Tahun Izin', noFilterOptionLabel: '-')
             ->selectFilter(key: 'month', options: ['01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April', '05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus', '09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember'], label: 'Bulan Izin', noFilterOptionLabel: '-')
             ->bulkAction(
                 label: 'Hapus Data',
